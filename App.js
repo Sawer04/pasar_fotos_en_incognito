@@ -9,10 +9,9 @@ export default function App() {
       <Text style={styles.instructions} >
       Presiona aqui para compartir la foto!
       </Text>
-      <TouchableOpacity
-        onPress={() => alert('Viva la lechona!')}
-        style={{ backgroundColor: 'green' }}>
-        <Text style={{ fontSize: 20, color: '#fff' }}>oprimeme</Text>
+
+      <TouchableOpacity onPress={() => alert('Viva la lechona!')}style={styles.button}>
+        <Text style={styles.buttonText}>oprimeme</Text>
       </TouchableOpacity>
     </View>
   );
@@ -36,5 +35,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginHorizontal: 15,
     marginBottom: 10,
+  },
+  button: {
+    backgroundColor: "green",
+    padding: 20,
+    borderRadius: 30,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: '#fff',
   },
 });
