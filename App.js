@@ -1,7 +1,20 @@
 import React from 'react';
 import { Image,StyleSheet, Text,TouchableOpacity, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Necesitas acceso requerido a la camara");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    console.log(pickerResult);
+  }
+
   return (
     <View style={styles.container}>
  <Image source={{ uri: "https://files.lafm.com.co/assets/public/2018-06/dia_de_la_lechona.jpg" }} style={styles.logo} />
@@ -10,7 +23,7 @@ export default function App() {
       Presiona aqui para compartir la foto!
       </Text>
 
-      <TouchableOpacity onPress={() => alert('Viva la lechona!')}style={styles.button}>
+      <TouchableOpacity onPress={openImagePickerAsync}style={styles.button}>
         <Text style={styles.buttonText}>oprimeme</Text>
       </TouchableOpacity>
     </View>
