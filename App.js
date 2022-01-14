@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image,StyleSheet, Text, View } from 'react-native';
-import logo from'./assets/logo.png';
+import { Image,StyleSheet, Text,TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
@@ -10,6 +9,11 @@ export default function App() {
       <Text style={styles.instructions} >
       Presiona aqui para compartir la foto!
       </Text>
+      <TouchableOpacity
+        onPress={() => alert('Viva la lechona!')}
+        style={{ backgroundColor: 'green' }}>
+        <Text style={{ fontSize: 20, color: '#fff' }}>oprimeme</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -25,11 +29,12 @@ const styles = StyleSheet.create({
   logo: {
     width: 305,
     height: 159,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   instructions: {
-    color: '#888',
+    color: '#000',
     fontSize: 18,
     marginHorizontal: 15,
+    marginBottom: 10,
   },
 });
