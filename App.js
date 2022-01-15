@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image,StyleSheet, Text,TouchableOpacity, View } from 'react-native';
+import { Image,StyleSheet,Platform, Text,TouchableOpacity, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
+import uploadToAnonymousFilesAsync from 'anonymous-files';
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -19,12 +20,17 @@ export default function App() {
       return;
     }
 
-    setSelectedImage({ localUri: pickerResult.uri });
+    if (Platform.OS === 'web') {
+      let remoteUri = await uploadToAnonymousFilesAsync(pickerResult.uri);
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri });
+    } else {
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
+    }
   };
 
   let openShareDialogAsync = async () => {
     if (!(await Sharing.isAvailableAsync())) {
-      alert(`Uh oh, sharing isn't available on your platform`);
+      alert(`The image is available for sharing at: ${selectedImage.remoteUri}`);
       return;
     }
 
@@ -89,5 +95,4 @@ const styles = StyleSheet.create({
     width: 500,
     height: 500,
     resizeMode: "contain"
-}
-});
+  }})
