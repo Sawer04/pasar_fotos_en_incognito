@@ -3,10 +3,11 @@ import { StyleSheet, Text, View } from "react-native";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector";
 
-export default function FaceDetection() {
+function FaceDetection() {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
-  const [eye, setEye] = useState({ x: 0, y: 0 });
+  const [eyeLeft, setEyeLeft] = useState({ x: 0, y: 0 });
+  const [eyeRigth, setEyeRigth] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     (async () => {
@@ -23,7 +24,8 @@ export default function FaceDetection() {
   }
   const handleFacesDetected = ({ faces }) => {
     console.log(faces[0]?.LEFT_EYE);
-    setEye(faces[0]?.LEFT_EYE);
+    setEyeLeft(faces[0]?.LEFT_EYE);
+    setEyeRigth(faces[0]?.RIGHT_EYE);
   };
 
   return (
@@ -39,14 +41,26 @@ export default function FaceDetection() {
           tracking: true,
         }}
       />
-      {eye && (
+      {eyeLeft && (
         <View
           style={{
             position: "absolute",
-            top: eye.x,
-            left: eye.y,
-            height: 15,
-            width: 15,
+            top: eyeLeft.y - 8,
+            left: eyeLeft.x - 8,
+            height: 16,
+            width: 16,
+            backgroundColor: "red",
+          }}
+        ></View>
+      )}
+      {eyeLeft && (
+        <View
+          style={{
+            position: "absolute",
+            top: eyeRigth.y - 8,
+            left: eyeRigth.x - 8,
+            height: 16,
+            width: 16,
             backgroundColor: "red",
           }}
         ></View>

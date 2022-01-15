@@ -10,6 +10,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 import uploadToAnonymousFilesAsync from "anonymous-files";
+import FaceDetection from "./src/face_detection/FaceDetection";
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -78,6 +79,7 @@ export default function App() {
         <Text style={styles.buttonText}>oprimeme</Text>
       </TouchableOpacity>
     </View>
+    // <FaceDetection />
   );
 }
 
