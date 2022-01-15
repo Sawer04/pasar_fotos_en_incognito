@@ -3,6 +3,7 @@ import { Image,StyleSheet,Platform, Text,TouchableOpacity, View } from 'react-na
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
 import uploadToAnonymousFilesAsync from 'anonymous-files';
+import Accelerometer from "./src/accelerometer/Accelerometer"
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -50,7 +51,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
- <Image source={{ uri: "https://files.lafm.com.co/assets/public/2018-06/dia_de_la_lechona.jpg" }} style={styles.logo} />
+ {/* <Image source={{ uri: "https://files.lafm.com.co/assets/public/2018-06/dia_de_la_lechona.jpg" }} style={styles.logo} />
 
       <Text style={styles.instructions} >
       Presiona aqui para compartir la foto!
@@ -58,7 +59,8 @@ export default function App() {
 
       <TouchableOpacity onPress={openImagePickerAsync}style={styles.button}>
         <Text style={styles.buttonText}>oprimeme</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+      <Accelerometer/>
     </View>
   );
 }
