@@ -2,7 +2,7 @@ import React, { useState, useEffect }from 'react';
 import { Image,StyleSheet,Platform, Text,TouchableOpacity, View } from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 
-export default function App() {
+export default function Grito() {
     const [data, setData] = useState({
       x: 0,
       y: 0,

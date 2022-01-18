@@ -3,7 +3,7 @@ import { Image,StyleSheet,Platform, Text,TouchableOpacity, View } from 'react-na
 import * as ImagePicker from 'expo-image-picker';
 import * as Sharing from 'expo-sharing';
 import uploadToAnonymousFilesAsync from 'anonymous-files';
-import Accelerometer from "./src/accelerometer/Accelerometer"
+import Grito from './src/accelerometer/Accelerometer';
 
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -60,7 +60,7 @@ export default function App() {
       <TouchableOpacity onPress={openImagePickerAsync}style={styles.button}>
         <Text style={styles.buttonText}>oprimeme</Text>
       </TouchableOpacity> */}
-      <Accelerometer/>
+      <Grito/>
     </View>
   );
 }
