@@ -45,13 +45,13 @@ export default function App() {
         </Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={subscription ? _unsubscribe : _subscribe} style={styles.button}>
-            <Text>{subscription ? 'On' : 'Off'}</Text>
+            <Text>{subscription ? 'Encendido' : 'Apagado'}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={_slow} style={[styles.button, styles.middleButton]}>
-            <Text>Slow</Text>
+            <Text>Lento</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={_fast} style={styles.button}>
-            <Text>Fast</Text>
+            <Text>Rapido</Text>
           </TouchableOpacity>
         </View>
       </View>
