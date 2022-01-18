@@ -57,12 +57,38 @@ export default function App() {
       </View>
     );
   }
-
-function Accelerometer(){
-    return(
-        <View>
-            <Text>Tamal 3000</Text>
-        </View>
-    )
-}
-module.exports=Accelerometer
+  
+  function round(n) {
+    if (!n) {
+      return 0;
+    }
+    return Math.floor(n * 100) / 100;
+  }
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      paddingHorizontal: 10,
+    },
+    text: {
+      textAlign: 'center',
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      alignItems: 'stretch',
+      marginTop: 15,
+    },
+    button: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#eee',
+      padding: 10,
+    },
+    middleButton: {
+      borderLeftWidth: 1,
+      borderRightWidth: 1,
+      borderColor: '#ccc',
+    },
+  });
