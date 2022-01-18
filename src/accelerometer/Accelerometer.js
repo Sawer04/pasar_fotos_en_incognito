@@ -57,7 +57,7 @@ export default function App() {
       </View>
     );
   }
-  
+
   function round(n) {
     if (!n) {
       return 0;
@@ -83,12 +83,12 @@ export default function App() {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#eee',
+      backgroundColor: '#957340',
       padding: 10,
     },
     middleButton: {
       borderLeftWidth: 1,
       borderRightWidth: 1,
-      borderColor: '#ccc',
+      borderColor: '#133',
     },
   });
