@@ -45,13 +45,13 @@ export default function Grito() {
         </Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity onPress={subscription ? _unsubscribe : _subscribe} style={styles.button}>
-            <Text>{subscription ? 'Encendido' : 'Apagado'}</Text>
+            <Text style={styles.TextBottom}>{subscription ? 'Encendido' : 'Apagado'}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={_slow} style={[styles.button, styles.middleButton]}>
-            <Text>Lento</Text>
+            <Text style={styles.TextBottom}>Lento</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={_fast} style={styles.button}>
-            <Text>Rapido</Text>
+            <Text style={styles.TextBottom}>Rapido</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -69,10 +69,14 @@ export default function Grito() {
     container: {
       flex: 1,
       justifyContent: 'center',
-      paddingHorizontal: 10,
+      paddingHorizontal: 50,
+      marginTop: 30,
+      marginBottom: 8,
+      backgroundColor: '#fff'
     },
     text: {
       textAlign: 'center',
+      color: '#000'
     },
     buttonContainer: {
       flexDirection: 'row',
@@ -85,10 +89,14 @@ export default function Grito() {
       alignItems: 'center',
       backgroundColor: '#957340',
       padding: 10,
+      color: '#fff'
+    },
+    TextBottom: {
+        color: '#fff'
     },
     middleButton: {
       borderLeftWidth: 1,
       borderRightWidth: 1,
-      borderColor: '#133',
+      borderColor: '#000',
     },
   });

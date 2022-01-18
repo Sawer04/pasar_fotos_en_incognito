@@ -68,7 +68,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#98759846',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   instructions: {
-    color: '#000',
+    color: '#5235',
     fontSize: 18,
     marginHorizontal: 15,
     marginBottom: 10,
