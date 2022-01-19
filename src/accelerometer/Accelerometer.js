@@ -1,6 +1,8 @@
 import React, { useState, useEffect }from 'react';
-import { Image,StyleSheet,Platform, Text,TouchableOpacity, View } from 'react-native';
+import { Image,StyleSheet,Platform, Text,TouchableOpacity, View, Button} from 'react-native';
 import { Accelerometer } from 'expo-sensors';
+import { Audio } from 'expo-av';
+const grito= require('../../assets/grito.mp3')
 
 export default function Grito() {
     const [data, setData] = useState({
@@ -10,6 +12,26 @@ export default function Grito() {
     });
     const [subscription, setSubscription] = useState(null);
   
+    const [sound, setSound] = React.useState();
+  
+    async function playSound() {
+      console.log('Loading Sound');
+      const { sound } = await Audio.Sound.createAsync(
+      grito
+      );
+      setSound(sound);
+  
+      console.log('Playing Sound');
+      await sound.playAsync(); }
+  
+    React.useEffect(() => {
+      return sound
+        ? () => {
+            console.log('Unloading Sound');
+            sound.unloadAsync(); }
+        : undefined;
+    }, [sound]);
+
     const _slow = () => {
       Accelerometer.setUpdateInterval(1000);
     };
@@ -37,6 +59,9 @@ export default function Grito() {
     }, []);
   
     const { x, y, z } = data;
+    if (y>=0.8){
+      playSound()
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Accelerometer: (in Gs where 1 G = 9.81 m s^-2)</Text>
@@ -54,6 +79,7 @@ export default function Grito() {
             <Text style={styles.TextBottom}>Rapido</Text>
           </TouchableOpacity>
         </View>
+          <Button title="Oprimime aca" onPress={playSound} />
       </View>
     );
   }
