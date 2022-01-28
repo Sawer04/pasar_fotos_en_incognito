@@ -3,7 +3,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector";
 import { Ionicons } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 function FaceDetection() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -199,7 +198,6 @@ module.exports = FaceDetection;
 const styles = StyleSheet.create({
   cameraContainer: {
     flex: 1,
-    marginTop: 26,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
