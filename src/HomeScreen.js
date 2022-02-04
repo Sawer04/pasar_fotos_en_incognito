@@ -16,6 +16,12 @@ export default function HomeScreen({ navigation }) {
       >
         <Text style={styles.textButton}>Detector de cara</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Accelerometro")}
+      >
+        <Text style={styles.textButton}>Grito</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
