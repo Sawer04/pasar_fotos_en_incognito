@@ -22,6 +22,12 @@ export default function HomeScreen({ navigation }) {
       >
         <Text style={styles.textButton}>Grito</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("Impresion")}
+      >
+        <Text style={styles.textButton}>Impresion</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
